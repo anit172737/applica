@@ -1,0 +1,19 @@
+@import './base';
+
+.App{
+    display: grid;
+    background-color: $color-primary;
+    grid-template-columns: 1rem 1fr;
+    padding-left: 2rem;
+    padding-right: 3rem;
+    // background-image: linear-gradient(to right bottom, 
+    // $color-primary, rgb(243, 70, 122));
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.link{
+    visibility: hidden;
+}

@@ -1,0 +1,23 @@
+@mixin formData {
+    .form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+        border-radius: 2rem;
+        background-color: white;
+    
+        &__left{
+    
+            &-img{
+                height: 50rem;
+                width: 50rem;
+            }
+        }
+    
+        &__right{
+            padding: 5rem;
+        }
+    
+    
+    }
+}
