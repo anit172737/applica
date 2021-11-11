@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react';
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import './sass/_base.scss';
 import './sass/App.scss';
 import {useFormik} from 'formik';
@@ -13,9 +13,9 @@ const App =()=> {
 
   // const [users, setUsers] = useState([]);
   // const [errors, setErrors] = useState('');
-  const [logged, setLogged] = useState(false);
+  // const [logged, setLogged] = useState(false);
   const [signed, setSigned] = useState(false);
-
+  const [user, setUser] = useState('')
   
   // const apiEndpoints = `http://localhost:8080/api/applicants`;
   const formik = useFormik({
@@ -74,6 +74,9 @@ const App =()=> {
     //  alert('user registration successful!')
     // setSigned(true)
     // }
+
+    localStorage.setItem('email' , values.email)
+    localStorage.setItem('pass', values.password)
     alert('user registration successful!')
     setSigned(true)
     
@@ -93,24 +96,25 @@ const App =()=> {
   // }
 
   
-  // useEffect(()=>{
+   useEffect(()=>{
   //   handleFetch();
-  // });
+    setUser(localStorage.getItem('user'))
+   }, []);
 
-const handleLog = ()=>{
-  // const allUsers = users.map(e => e.email);
-  // const curUser = formik.values.email;
-  // const curUserPass = formik.values.password;
+// const handleLog = ()=>{
+//   // const allUsers = users.map(e => e.email);
+//   // const curUser = formik.values.email;
+//   // const curUserPass = formik.values.password;
 
-  alert('user login successful!')
-  setLogged(true)
-}
+//   alert('user login successful!')
+//   setLogged(true)
+// }
 
     return (
       <Router>
       <div className="App">
         <nav className='nav'>
-        <ul>
+        <ul style={{listStyleType:'none'}}>
           <li className='list'>
             <NavLink exact to='/' activeClassName='active' className='link'>SignUp</NavLink>
           </li>
@@ -125,11 +129,11 @@ const handleLog = ()=>{
 
       <Switch>
         <Route path='/dashboard'>
-          <Dashboard/>
+        {user ? <Dashboard /> :
+          <Redirect to= '/login' />}
         </Route>
         <Route path='/login'>
-          {logged ? <Redirect to= '/dashboard' /> :
-          <Login onSubmit = {handleLog}/>}
+          <Login />
         </Route>
         <Route path='/'>
           {signed ? <Redirect to='/login' />
