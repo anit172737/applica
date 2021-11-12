@@ -1,0 +1,9 @@
+@import './base';
+
+.conditional{
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    background-color: $color-primary-light;
+    // box-shadow: 0px 0px 20px $color-primary-dark ;
+    margin: 3rem ;
+}

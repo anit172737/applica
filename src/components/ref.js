@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../sass/conditional.scss';
 
 class Ref extends Component {
     render() {
         return (
-            <div>
-                <h1 style={{color:'white'}}>refs</h1>
+            <div className='conditional'>
+                <div>ref</div>
             </div>
         );
     }

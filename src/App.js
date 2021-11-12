@@ -5,9 +5,9 @@ import './sass/App.scss';
 import {useFormik} from 'formik';
 import * as Yup from 'yup'; 
 import {BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
-import Dashboard from './components/dashboard';
-import Login from './components/login';
 const Signup = lazy(()=>import('./components/signup'))
+const Login = lazy(()=>import('./components/login'))
+const Dashboard = lazy(()=>import('./components/dashboard'))
 
 const App =()=> {
 

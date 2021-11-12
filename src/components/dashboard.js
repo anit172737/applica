@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-
 import ConditionalRend from './conditionalRend';
 import Hook from './hook';
 import Ref from './ref';
+import ApiIntegration from './apiIntegration';
 
 const Dashboard =()=>{
     const history = useHistory();
@@ -15,20 +16,32 @@ const Dashboard =()=>{
             <Router>
             <div className='dashboard'>
                 <div className='dashboard__head'>
-                <h1 style={{color:'white'}}>dashboard</h1>
+                <h1>taskbook</h1>
                 <input className='dashboard__btn' type ='button' value='logout' onClick={()=>history.push('/login')}/>
                 </div>
                 
             <nav className='dashboard__nav'>
-                <ul>
-                    <li className='dashboard__list'>
-                        <NavLink exact to={`${url}/hook`} activeClassName='active' className='link1'>hook</NavLink>
+                <ul className='dashboard__nav-ul'>
+                    
+                    <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/conditionalRendering`}
+                         activeClassName='dashboard__nav-link-active' 
+                         className='dashboard__nav-link'>Conditional rendering</NavLink>
                     </li>
-                    <li className='dashboard__list'>
-                        <NavLink  to={`${url}/refs`}  className='link1'>Refs</NavLink>
+                    <li className='dashboard__nav-list'>
+                        <NavLink exact to={`${url}/hook`} 
+                        activeClassName='dashboard__nav-link-active' 
+                        className='dashboard__nav-link dashboard__nav-link1'>hook</NavLink>
                     </li>
-                    <li className='dashboard__list'>
-                        <NavLink  to={`${url}/conditionalRendering`} className='link1'>Conditional Reandering</NavLink>
+                    <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/refs`} 
+                        activeClassName='dashboard__nav-link-active'  
+                        className='dashboard__nav-link'>Refs</NavLink>
+                    </li>
+                    <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/apiIntegration`}
+                         activeClassName='dashboard__nav-link-active' 
+                         className='dashboard__nav-link'>Api Integration</NavLink>
                     </li>
                 </ul>
             </nav>
@@ -42,6 +55,9 @@ const Dashboard =()=>{
                 </Route>
                 <Route path={`${path}/hook`}>
                     <Hook></Hook>
+                </Route>
+                <Route path={`${path}/apiIntegration`}>
+                    <ApiIntegration></ApiIntegration>
                 </Route>
             </Switch>
 

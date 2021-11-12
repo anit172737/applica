@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import '../sass/conditional.scss'
 
-class ConditionalRend extends Component {
+class ApiIntegration extends Component {
     render() {
         return (
             <div className='conditional'>
-                <div>Conditional</div>
+                <div>Api integration</div>
             </div>
         );
     }
 }
 
-export default ConditionalRend;
+export default ApiIntegration;

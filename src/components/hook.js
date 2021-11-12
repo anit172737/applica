@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import '../sass/conditional.scss';
 
 class Hook extends Component {
     render() {
         return (
-            <div>
-                <h1 style={{color:'white'}}>hooks</h1>
+            <div className='conditional'>
+                <div>hook</div>
             </div>
         );
     }
