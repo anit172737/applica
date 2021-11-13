@@ -64,7 +64,7 @@ const Login =(props)=>{
         if(values.loginMail === email && values.loginPass === pass){
           localStorage.setItem('user', email)
           console.log("working")
-          history.push('/dashboard/conditionalRendering');
+          history.push('/dashboard/home');
         }else if(values.loginMail !== email){
           alert('incorrect email ID!')
         }else if(values.loginPass !== pass){

@@ -1,13 +1,14 @@
 // import React, { useEffect, useState } from 'react';
+import Login from './components/login';
+import Dashboard from './components/dashboard';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import './sass/_base.scss';
 import './sass/App.scss';
 import {useFormik} from 'formik';
 import * as Yup from 'yup'; 
 import {BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
 const Signup = lazy(()=>import('./components/signup'))
-const Login = lazy(()=>import('./components/login'))
-const Dashboard = lazy(()=>import('./components/dashboard'))
 
 const App =()=> {
 
@@ -34,7 +35,7 @@ const App =()=> {
       firstName: Yup.string()
         .max(15, 'Must be 15 characters or less')
         .required('This field is required'),
-      lastName: Yup.string()
+      lastName: Yup.number().integer()
         .max(20, 'Must be 20 characters or less')
         .required('This field is required'),
       email: Yup.string().email('Invalid email address').required('This field is required'),
@@ -129,13 +130,18 @@ const App =()=> {
 
       <Switch>
         <Route path='/dashboard'>
-        {user ? <Dashboard /> :
+          <ErrorBoundary>
+          {user ? <Dashboard/> :
           <Redirect to= '/login' />}
+          </ErrorBoundary>
         </Route>
         <Route path='/login'>
-          <Login />
+          <ErrorBoundary>
+          <Login></Login>
+          </ErrorBoundary>
         </Route>
         <Route path='/'>
+          <ErrorBoundary>
           {signed ? <Redirect to='/login' />
           :
         <Suspense fallback={<div>Loading...</div>}>
@@ -148,6 +154,7 @@ const App =()=> {
         touched = {formik.touched}  
         ></Signup>
         </Suspense>}
+        </ErrorBoundary>
         </Route>
         </Switch>
       </div>

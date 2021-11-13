@@ -1,11 +1,12 @@
 import React from 'react';
 import { useHistory, useRouteMatch } from 'react-router';
 import '../sass/dashboard.scss';
-import {BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import ConditionalRend from './conditionalRend';
 import Hook from './hook';
 import Ref from './ref';
 import ApiIntegration from './apiIntegration';
+import Home from './home';
 
 const Dashboard =()=>{
     const history = useHistory();
@@ -22,7 +23,11 @@ const Dashboard =()=>{
                 
             <nav className='dashboard__nav'>
                 <ul className='dashboard__nav-ul'>
-                    
+                <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/home`}
+                         activeClassName='dashboard__nav-link-active' 
+                         className='dashboard__nav-link'>Home</NavLink>
+                    </li>
                     <li className='dashboard__nav-list'>
                         <NavLink  to={`${url}/conditionalRendering`}
                          activeClassName='dashboard__nav-link-active' 
@@ -47,6 +52,9 @@ const Dashboard =()=>{
             </nav>
 
             <Switch>
+                <Route path={`${path}/home`}>
+                    <Home></Home>
+                </Route>
                 <Route path={`${path}/conditionalRendering`}>
                     <ConditionalRend></ConditionalRend>
                 </Route>
