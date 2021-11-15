@@ -13,7 +13,7 @@ const ConditionalRend = () => {
 
         return (
             <div className='conditional'>
-                <div className = 'conditional__text'>{click ? 
+                <div>{click ? 
                 <img className='conditional__img'  src={bulbOn} alt='bulbOn'></img> : 
                 <img className='conditional__img' src={bulbOff} alt='bulbOff'></img>}</div>
                 <button className='conditional__btn' type='button' onClick={handleClick}>{click ? 'OFF' : 'ON'}</button>

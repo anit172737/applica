@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react/cjs/react.development';
 import '../sass/conditional.scss';
 
-class home extends Component {
-    render() {
+const Home = () => {
+const [user, setUser] = useState('')
+    
+useEffect(()=>{
+    setUser(localStorage.getItem('username'))
+},[])
+        
         return (
             <div className='conditional'>
-                <h1>Welcome to Taskbook</h1>
+                <h1>Welcome to Taskbook {user}</h1>
             </div>
         );
     }
-}
 
-export default home;
+
+export default Home;

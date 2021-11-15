@@ -35,7 +35,7 @@ const App =()=> {
       firstName: Yup.string()
         .max(15, 'Must be 15 characters or less')
         .required('This field is required'),
-      lastName: Yup.number().integer()
+      lastName: Yup.string()
         .max(20, 'Must be 20 characters or less')
         .required('This field is required'),
       email: Yup.string().email('Invalid email address').required('This field is required'),
@@ -76,6 +76,7 @@ const App =()=> {
     // setSigned(true)
     // }
 
+    localStorage.setItem('username', values.firstName)
     localStorage.setItem('email' , values.email)
     localStorage.setItem('pass', values.password)
     alert('user registration successful!')

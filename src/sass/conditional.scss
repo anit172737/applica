@@ -11,10 +11,29 @@
     align-content: center;
     justify-items: center;
 
-    &__text{
-        font-family: myFont;
-        text-align: center;
+    &__form{
+        padding: 5rem 4rem;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        gap:3rem;
+        background-color: #b5b2f1;
+        // border: 3px solid $color-primary;
+        border-radius: 2rem;
+
+        &-text{
+            font-family: myFont;
+            text-align: center;
+            border:none;
+            outline: none;
+            padding: 1rem;
+            border-radius: 1rem;
+            font-size: 2rem;
+        }
     }
+
+    
 
     &__img{
         height: 300px;
