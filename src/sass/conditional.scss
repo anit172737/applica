@@ -31,8 +31,15 @@
             border-radius: 1rem;
             font-size: 2rem;
         }
+
+       
     }
 
+    &__list{
+        display: grid;
+        background-color: #b5b2f1;
+        padding: .5rem 4rem;
+    }
     
 
     &__img{

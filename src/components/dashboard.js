@@ -34,7 +34,7 @@ const Dashboard =()=>{
                          className='dashboard__nav-link'>Conditional rendering</NavLink>
                     </li>
                     <li className='dashboard__nav-list'>
-                        <NavLink exact to={`${url}/hook`} 
+                        <NavLink exact to={`${url}/hook/userProfile`} 
                         activeClassName='dashboard__nav-link-active' 
                         className='dashboard__nav-link dashboard__nav-link1'>hook</NavLink>
                     </li>

@@ -1,0 +1,53 @@
+@import './base';
+
+.hook{
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: $color-primary-light;
+    margin: 3rem ;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    align-content: center;
+    align-items: center;
+
+    &__nav{
+        display: grid;
+        align-self: start;
+    }
+
+    &__ul{
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: start;
+        align-items: center;
+        list-style-type: none;
+        background-color: #b5b2f1;
+        border-radius: 1rem;
+        padding: 0rem .5rem;
+
+        &-list{
+            &-link1{
+                text-decoration: none;
+                color: white;
+                background-color: #b5b2f1;
+                padding: 0rem 2rem;
+                font-size: 2rem;
+                margin: 0px;
+                transition: all .2s;
+                border-radius: .5rem;
+
+                &:hover{
+                    color: blueviolet;
+                }
+            }
+
+            &-active{
+                background-color: blueviolet;
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+    }
+
+}
