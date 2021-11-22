@@ -2,6 +2,7 @@
 import Login from './components/login';
 import Dashboard from './components/dashboard';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
+import axios  from 'axios';
 import './sass/_base.scss';
 import './sass/App.scss';
 import {useFormik} from 'formik';
@@ -55,13 +56,13 @@ const App =()=> {
     onSubmit: (values, {resetForm}) => {
       console.log(values);
       resetForm({values:''});
-    // const {firstName, lastName, email, password} = formik.values;
+    const {firstName, lastName, email, password} = formik.values;
     // const allUsers = users.map(e => e.email);
     // const curUser = formik.values.email;
     // const handlePost = async ()=>{
     //   const {data:post} = await axios.get(`http://localhost:8080/api/applicants`)
     // }
-
+    axios.post(`http://localhost:8080/api/applicants`,{firstName, lastName, email, password} );
     // if(allUsers.includes(curUser)){
     //   alert(`email-id already exist, please provide another email-id`)
     // }else{

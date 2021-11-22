@@ -1,0 +1,68 @@
+@import './base';
+
+.userForm{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    // padding: rem;
+    border-radius: 5px;
+
+    &__input{
+        padding: 0px 1rem;
+        width: 45rem;
+        border: none;
+        border-bottom: 2px solid $color-primary;
+        outline: none;
+        color: $color-primary-dark;
+        font-size: 2rem;
+        font-family: myFont;
+        background-color: $color-primary-light;
+        max-height: 100px;
+        max-width: 55rem;
+        
+        &::placeholder{
+            font-family: myFont;
+            font-size: 1.5rem;
+        }
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    &__label{
+            font-size: 1.4rem;
+            color: orangered;
+            font-family: myFont;
+            // border: 1px solid orangered;
+            background-color: rgb(252, 224, 215);
+            border-radius: 4px;
+            display: grid;
+            justify-content: center;
+            text-transform: uppercase;
+            width: 45rem;
+            height: auto;
+            padding-left: 5px;
+            padding-right: 5px;
+            border: 1px solid orangered;
+    }
+
+    &__btn{
+            padding: .7rem;
+            border: none;
+            background-color: $color-primary;
+            color: white;
+            border-radius: 50px;
+            font-size: 2rem;
+            font-family: myFont;
+            transition: all .2s;
+
+            &:hover{
+                transform: translateY(-5px);
+                cursor: pointer;
+                color: $color-primary-dark;
+                box-shadow: .5rem .5rem 2rem gray;
+            }
+    }
+}

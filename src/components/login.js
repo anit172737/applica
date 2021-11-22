@@ -21,6 +21,7 @@ const Login =(props)=>{
       setEmail(localStorage.getItem('email'))
       setPass(localStorage.getItem('pass'))
     }, [])
+    
     const formik = useFormik({
         initialValues: {
           
@@ -96,7 +97,7 @@ const Login =(props)=>{
                     placeholder='Enter email' 
                     value={formik.values.loginMail}
                     onBlur = {formik.handleBlur}
-                    autoFocus/>
+                    />
                     {formik.touched.loginMail && formik.errors.loginMail ? <div className='form__right-label'>{formik.errors.loginMail}</div> : null}
                     </div>
                     <div>
