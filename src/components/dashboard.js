@@ -7,6 +7,7 @@ import Hook from './hook';
 import Ref from './ref';
 import ApiIntegration from './apiIntegration';
 import Home from './home';
+import Chart from './chart';
 
 const Dashboard =()=>{
     const history = useHistory();
@@ -48,6 +49,11 @@ const Dashboard =()=>{
                          activeClassName='dashboard__nav-link-active' 
                          className='dashboard__nav-link'>Api Integration</NavLink>
                     </li>
+                    <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/chart`}
+                         activeClassName='dashboard__nav-link-active' 
+                         className='dashboard__nav-link'>Chart</NavLink>
+                    </li>
                 </ul>
             </nav>
 
@@ -66,6 +72,9 @@ const Dashboard =()=>{
                 </Route>
                 <Route path={`${path}/apiIntegration`}>
                     <ApiIntegration></ApiIntegration>
+                </Route>
+                <Route path={`${path}/chart`}>
+                    <Chart></Chart>
                 </Route>
             </Switch>
 

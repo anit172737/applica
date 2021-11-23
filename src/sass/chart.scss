@@ -1,0 +1,18 @@
+@import './base';
+
+.chart{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding:2rem;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    background-color: $color-primary-light;
+    margin: 3rem ;
+
+    &__sec{
+        height: 50vh;
+        width: 50vw;
+    }
+    
+}
