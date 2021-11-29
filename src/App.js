@@ -9,6 +9,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup'; 
 import {BrowserRouter as Router, Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
+import PrivateRoute from './components/private';
 const Signup = lazy(()=>import('./components/signup'))
 
 const App =()=> {
@@ -80,7 +81,7 @@ const App =()=> {
     localStorage.setItem('username', values.firstName)
     localStorage.setItem('email' , values.email)
     localStorage.setItem('pass', values.password)
-    alert('user registration successful!')
+    alert('user registration successfull!')
     setSigned(true)
     
     },
@@ -119,33 +120,30 @@ const App =()=> {
         <nav className='nav'>
         <ul style={{listStyleType:'none'}}>
           <li className='list'>
-            <NavLink exact to='/' activeClassName='active' className='link'>SignUp</NavLink>
+            <NavLink exact to='/' activeClassName='active' className='link'>Login</NavLink>
           </li>
           <li className='list'>
-            <NavLink  to='/login'  className='link'>Login</NavLink>
+            <NavLink exact  to='/signup'  className='link'>Signup</NavLink>
           </li>
           <li className='list'>
-            <NavLink  to='/dashboard' className='link'>Dashboard</NavLink>
+            <NavLink exact  to='/dashboard' className='link'>Dashboard</NavLink>
           </li>
         </ul>
       </nav>
 
       <Switch>
+        {/* <PrivateRoute exact path='/dashboard' component={Dashboard}/> */}
+        
         <Route path='/dashboard'>
           <ErrorBoundary>
           {user ? <Dashboard/> :
-          <Redirect to= '/login' />}
+          <Redirect to= '/' />}
           </ErrorBoundary>
         </Route>
-        <Route path='/login'>
+        <Route exact path='/signup'>
           <ErrorBoundary>
-          <Login></Login>
-          </ErrorBoundary>
-        </Route>
-        <Route path='/'>
-          <ErrorBoundary>
-          {signed ? <Redirect to='/login' />
-          :
+          {/* {signed ? <Redirect to='/' />
+          : */}
         <Suspense fallback={<div>Loading...</div>}>
         <Signup 
         toChange={formik.handleChange} 
@@ -155,8 +153,14 @@ const App =()=> {
         values = {formik.values}
         touched = {formik.touched}  
         ></Signup>
-        </Suspense>}
+        </Suspense>
+        {/* } */}
         </ErrorBoundary>
+        </Route>
+        <Route path='/'>
+          <ErrorBoundary>
+          <Login></Login>
+          </ErrorBoundary>
         </Route>
         </Switch>
       </div>

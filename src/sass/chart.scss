@@ -9,10 +9,36 @@
     border-radius: 1rem;
     background-color: $color-primary-light;
     margin: 3rem ;
+    gap: 2rem;
+    position: relative;
+    transition: all .2s;
 
     &__sec{
         height: 50vh;
         width: 50vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__btn{
+        padding: .2rem;
+        border: none;
+        background-color: $color-primary;
+        color: white;
+        border-radius: 50px;
+        font-size: 2rem;
+        font-family: myFont;
+        transition: all .2s;
+        width: 200px;
+        justify-self: center;
+
+        &:hover{
+            transform: translateY(-5px);
+            cursor: pointer;
+            color: $color-primary-dark;
+            box-shadow: .5rem .5rem 2rem gray;
+        }
     }
     
 }

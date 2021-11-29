@@ -2,12 +2,12 @@ import React, { useRef } from 'react';
 import '../sass/conditional.scss';
 
 const Ref =()=> {
-    const firstName = useRef(null);
+    const firstName = useRef();
     // const [name, setName] = useState('')
     const handleSubmit = (e) => {
         e.preventDefault();
-        let a = firstName.current.focus();
-        console.log(a);
+        firstName.current.focus();
+        // console.log(a)
         
     }
     

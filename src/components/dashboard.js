@@ -8,6 +8,7 @@ import Ref from './ref';
 import ApiIntegration from './apiIntegration';
 import Home from './home';
 import Chart from './chart';
+import LifeCycle from './lifeCycle';
 
 const Dashboard =()=>{
     const history = useHistory();
@@ -35,14 +36,9 @@ const Dashboard =()=>{
                          className='dashboard__nav-link'>Conditional rendering</NavLink>
                     </li>
                     <li className='dashboard__nav-list'>
-                        <NavLink exact to={`${url}/hook/userProfile`} 
-                        activeClassName='dashboard__nav-link-active' 
-                        className='dashboard__nav-link dashboard__nav-link1'>hook</NavLink>
-                    </li>
-                    <li className='dashboard__nav-list'>
-                        <NavLink  to={`${url}/refs`} 
-                        activeClassName='dashboard__nav-link-active'  
-                        className='dashboard__nav-link'>Refs</NavLink>
+                        <NavLink  to={`${url}/lifeCycle`}
+                         activeClassName='dashboard__nav-link-active' 
+                         className='dashboard__nav-link'>Class Life Cycle</NavLink>
                     </li>
                     <li className='dashboard__nav-list'>
                         <NavLink  to={`${url}/apiIntegration`}
@@ -54,6 +50,18 @@ const Dashboard =()=>{
                          activeClassName='dashboard__nav-link-active' 
                          className='dashboard__nav-link'>Chart</NavLink>
                     </li>
+                    <li className='dashboard__nav-list'>
+                        <NavLink exact to={`${url}/hook/userProfile`} 
+                        activeClassName='dashboard__nav-link-active' 
+                        className='dashboard__nav-link dashboard__nav-link1'>hooks</NavLink>
+                    </li>
+                    <li className='dashboard__nav-list'>
+                        <NavLink  to={`${url}/refs`} 
+                        activeClassName='dashboard__nav-link-active'  
+                        className='dashboard__nav-link'>Refs</NavLink>
+                    </li>
+                    
+                    
                 </ul>
             </nav>
 
@@ -75,6 +83,9 @@ const Dashboard =()=>{
                 </Route>
                 <Route path={`${path}/chart`}>
                     <Chart></Chart>
+                </Route>
+                <Route path={`${path}/lifeCycle`}>
+                    <LifeCycle fav={'yellow'}/>
                 </Route>
             </Switch>
 

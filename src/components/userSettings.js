@@ -4,6 +4,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup'; 
 import axios from 'axios';
 import { useState } from 'react/cjs/react.development';
+import { useHistory } from 'react-router';
 
 const UserSettings =()=> {
     const [detail, setDetail] = useState([])
@@ -11,25 +12,28 @@ const UserSettings =()=> {
     const curUser = detail.filter(e => e.email === user);
     const userAddress = curUser.map(e=> e.address)
     const userJob = curUser.map(e=> e.jobProfile)
+    const [change, setChange] = useState(false)
+    const history = useHistory()
 
     const handleGet = async () =>{
         const {data:get} = await axios.get(`http://localhost:8080/api/applicants`)
         setDetail(get);
+        
     }
 
     useEffect(()=>{
         setUser(localStorage.getItem('user'))
         handleGet()
         console.log(detail);
-    },[])
+    },[change])
 
     const formik = useFormik({
         initialValues: {
           
-            // mail:'',
-            jobProfile:'',
-            address:'',
+            jobProfile:userJob.toString(),
+            address: userAddress.toString(),
         },
+        enableReinitialize: true,
         validationSchema: Yup.object().shape({ 
         // mail: Yup.string().email('Invalid email address').required('This field is required'),
         jobProfile: Yup.string()
@@ -44,7 +48,8 @@ const UserSettings =()=> {
           resetForm({values:''});
           const {jobProfile, address} = formik.values;
           axios.put(`http://localhost:8080/api/applicants/${user}`,{jobProfile, address})
-        
+          setChange(!change)
+          history.push('/dashboard/hook/userProfile')
         },
       });
 

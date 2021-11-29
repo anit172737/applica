@@ -119,7 +119,7 @@ const Login =(props)=>{
                     <div style={{display:'grid', justifyContent:'center'}}>
                     <div style={{color:'#2f2e47'}}>Not a member? <span><button 
                     className='form__sign-btn'
-                    onClick={()=> history.push('/')}>SignUp</button></span>
+                    onClick={()=> history.push('/signup')}>SignUp</button></span>
                     
                     </div></div>
                 </form>

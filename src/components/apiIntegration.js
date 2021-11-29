@@ -4,8 +4,13 @@ import '../sass/apiIntegration.scss';
 
 const ApiIntegration =()=> {
     const [taskName, setTaskName] = useState('');
-    const [allTask, setAllTask] = useState([{}])
+    const [allTask, setAllTask] = useState([])
     const [condition, setcondition] = useState(false)
+
+    let test = [];
+    allTask.map((el) => {
+        test.unshift(el)
+    })
    
     // let arr = [{name:'ami', job:'man'}, {name:'aji', job:'woman'}]
     // let items = [];
@@ -72,7 +77,7 @@ const ApiIntegration =()=> {
                     
                 </form>
                     <div className='api__sec-list'>
-                    {allTask.map((val)=>
+                    {test.map((val)=>
                         <div className='api__sec-list-items' key={val._id}>
                         <p className='api__sec-list-item'>{val.taskName}</p>
                         <p className='api__sec-list-delete' onClick={()=>handleDelete(val._id)}>X</p>
