@@ -49,10 +49,7 @@ const App =()=> {
     'Must be 8 characters, atleast one (number, uppercase, lowercase and symbol).')
     ,
     repassword: Yup.string().oneOf([Yup.ref("password"), null], "Passwords must match"),
-    // loginMail: Yup.string()
-    // .required('This field is required'),
-    // loginPass: Yup.string()
-    // .required('This field is required')
+    
     }),
     onSubmit: (values, {resetForm}) => {
       console.log(values);
